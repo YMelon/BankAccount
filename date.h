@@ -18,7 +18,7 @@ public:
 		return ( (year % 4 == 0 && year % 100 != 0) || year % 400 == 0);
 	}
 	void show() const;  //输出当前日期
-	int distance(const Date &date) const {
+	int operator-(const Date &date) const{    //计算两个日期之间差多少天
 		return totalDays - date.totalDays;
 	}
 };

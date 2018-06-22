@@ -24,8 +24,15 @@ protected:
 public:
 	const string &getId() const { return id; }
 	double getBalance() const { return balance; }
+
+	//存入现金，date为日期，amount为金额，desc为款项说明
+	virtual void deposit(const Date &date, double amount, const string &desc) = 0;
+	//取出现金，date为日期，amount为金额，desc为款项说明
+	virtual void withdraw(const Date &date, double amount, const string &desc) = 0;
+	//结算（计算利息、年费等），每月结算一次，date为结算日期
+	virtual void settle(const Date &date) = 0;
 	//显示账户信息
-	void show() const;
+	virtual void show() const;
 
 	static double getTotal() { return total; }
 };
